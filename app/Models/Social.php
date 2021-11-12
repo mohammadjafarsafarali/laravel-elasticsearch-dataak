@@ -16,25 +16,16 @@ class Social extends Model
      */
     protected $fillable = [
         'name',
-        'posts_count'
+        'post_count'
     ];
 
     /**
      * @return HasMany
      * @author mj.safarali
      */
-    public function instagrams(): HasMany
+    public function posts(): HasMany
     {
-        return $this->hasMany(Instagram::class);
-    }
-
-    /**
-     * @return HasMany
-     * @author mj.safarali
-     */
-    public function twitters(): HasMany
-    {
-        return $this->hasMany(Twitter::class);
+        return $this->hasMany(Post::class);
     }
 
     /**

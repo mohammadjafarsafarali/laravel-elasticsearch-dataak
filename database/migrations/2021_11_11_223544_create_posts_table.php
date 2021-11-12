@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstagramsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateInstagramsTable extends Migration
      */
     public function up()
     {
-        Schema::create('instagrams', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedTinyInteger('social_id');
             $table->foreign('social_id')->on('socials')->references('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->on('users')->references('id');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->text('content');
             $table->softDeletes();
             $table->timestamps();
@@ -33,6 +33,6 @@ class CreateInstagramsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instagrams');
+        Schema::dropIfExists('posts');
     }
 }

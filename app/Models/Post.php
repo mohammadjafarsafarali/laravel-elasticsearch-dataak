@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class Twitter extends Model
+class Post extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -18,8 +19,8 @@ class Twitter extends Model
     protected $fillable = [
         'social_id',
         'user_id',
-        'content',
-        'retweet_count'
+        'title',
+        'content'
     ];
 
     /**
@@ -47,5 +48,14 @@ class Twitter extends Model
     public function gallery(): MorphMany
     {
         return $this->morphMany(File::class, 'fileable');
+    }
+
+    /**
+     * @return HasMany
+     * @author mj.safarali
+     */
+    public function postMeta(): HasMany
+    {
+        return $this->hasMany(PostMeta::class);
     }
 }

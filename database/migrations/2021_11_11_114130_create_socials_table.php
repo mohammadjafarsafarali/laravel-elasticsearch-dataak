@@ -16,7 +16,7 @@ class CreateSocialsTable extends Migration
         Schema::create('socials', function (Blueprint $table) {
             $table->unsignedTinyInteger('id', true);
             $table->string('name');
-            $table->integer('posts_count')->default(0);
+            $table->integer('post_count')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
