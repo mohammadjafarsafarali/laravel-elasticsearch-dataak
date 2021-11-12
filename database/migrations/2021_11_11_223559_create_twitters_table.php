@@ -20,7 +20,7 @@ class CreateTwittersTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->on('users')->references('id');
             $table->text('content');
-            $table->integer('retweet')->default(0);
+            $table->integer('retweet_count')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
