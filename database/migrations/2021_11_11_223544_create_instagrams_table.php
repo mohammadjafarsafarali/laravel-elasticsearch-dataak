@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateInstagramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('instagrams', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->unsignedTinyInteger('social_id');
+            $table->foreign('social_id')->on('socials')->references('id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->on('users')->references('id');
+            $table->string('title');
+            $table->text('content');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('instagrams');
     }
 }
