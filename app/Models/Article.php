@@ -10,6 +10,9 @@ class Article extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'source_id',
         'title',
