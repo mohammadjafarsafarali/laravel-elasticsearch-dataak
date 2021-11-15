@@ -18,16 +18,12 @@ class FileFactory extends Factory
      */
     public function definition(): array
     {
-        $fileable = [
-            User::class,
-            Source::class,
-        ];
 
         return [
             'fileable_id' => $this->faker->numberBetween(1, 10),
-            'fileable_type' => $this->faker->randomElement($fileable),
-            'type' => $this->faker->randomElement(['video', 'image']),
-            'url' => $this->faker->imageUrl($fileable),
+            'fileable_type' => $this->faker->randomElement(config('database.eloquent.morphMap')),
+            'type' => $this->faker->randomElement(['video', 'photo']),
+            'url' => $this->faker->imageUrl(config('database.eloquent.morphMap')),
             'extension' => $this->faker->fileExtension()
         ];
     }
