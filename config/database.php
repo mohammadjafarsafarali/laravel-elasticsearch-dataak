@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Source;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 return [
@@ -16,6 +18,14 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+
+
+    'eloquent' => [
+        'morphMap' => [
+            'user' => User::class,
+            'source' => Source::class,
+        ]
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -92,13 +102,13 @@ return [
         ],
 
         'elasticsearch' => [
-            'driver'   => 'elasticsearch',
-            'host'     => 'localhost',
-            'port'     => 9200,
+            'driver' => 'elasticsearch',
+            'host' => 'localhost',
+            'port' => 9200,
             'database' => 'your_es_index',
             'username' => '',
             'password' => '',
-            'suffix'   => '',
+            'suffix' => '',
         ]
 
     ],
@@ -133,7 +143,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
