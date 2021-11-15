@@ -26,9 +26,9 @@ class SearchRequest extends FormRequest
         return [
             'date' => 'array|max:2',
             'date.*.operand' => 'required_with:date.*.value|in:gt,gte,lt,lte',
-            'date.*.value' => 'required_with:date.*.operand|date_format:Y/m/d H:i:s',
+            'date.*.value' => 'required_with:date.*.operand|date_format:Y-m-d H:i:s',
             'params' => 'array',
-            'params.*' => 'string',
+            'params.*' => 'string|in:article_title,source_name,user_name,instagram_id,twitter_id',
             'operation' => 'required|in:and,or'
         ];
     }
