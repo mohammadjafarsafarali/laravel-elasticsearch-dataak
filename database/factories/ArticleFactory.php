@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Article;
 use App\Models\Source;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 class ArticleFactory extends Factory
 {
@@ -19,9 +20,9 @@ class ArticleFactory extends Factory
     {
         return [
             'source_id' => Source::Factory(),
+            'user_id' => User::Factory(),
             'title' => $this->faker->sentence(2),
             'content' => $this->faker->text(),
-            'url' => $this->faker->url,
         ];
     }
 }

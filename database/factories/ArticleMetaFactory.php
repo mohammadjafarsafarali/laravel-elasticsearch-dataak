@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
-use App\Models\PostMeta;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\ArticleMeta;
+use App\Models\Article;
 
-class PostMetaFactory extends Factory
+class ArticleMetaFactory extends Factory
 {
-    protected $model = PostMeta::class;
+    protected $model = ArticleMeta::class;
 
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class PostMetaFactory extends Factory
     public function definition(): array
     {
         return [
-            'post_id' => Post::factory(),
+            'article_id' => Article::factory(),
             'key' => $this->faker->word,
             'value' => $this->faker->word
         ];

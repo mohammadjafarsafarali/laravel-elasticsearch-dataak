@@ -2,11 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\File;
-use App\Models\Post;
-use App\Models\Source;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Source;
+use App\Models\File;
+use App\Models\User;
 
 class FileFactory extends Factory
 {
@@ -21,7 +20,6 @@ class FileFactory extends Factory
     {
         $fileable = [
             User::class,
-            Post::class,
             Source::class,
         ];
 

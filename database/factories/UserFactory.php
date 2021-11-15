@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use App\Models\User;
 
 class UserFactory extends Factory
 {
@@ -18,21 +17,11 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name()
+            'name' => $this->faker->name(),
+            'instagram_id' => $this->faker->userName(),
+            'twitter_id' => $this->faker->userName(),
+            'instagram_avatar' => $this->faker->imageUrl(),
+            'twitter_avatar' => $this->faker->imageUrl(),
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
     }
 }

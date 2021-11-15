@@ -2,12 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Article;
-use App\Models\File;
-use App\Models\Source;
-use App\Models\User;
-use Database\Factories\SourceFactory;
 use Illuminate\Database\Seeder;
+use App\Models\Source;
+use App\Models\File;
 
 class SourceSeeder extends Seeder
 {
@@ -18,15 +15,34 @@ class SourceSeeder extends Seeder
      */
     public function run()
     {
-        Source::Factory()->count(10)->has(
-            Article::factory()->count(10)
-        )->create()->each(function ($source) {
-            File::factory()->state([
-                'fileable_id' => $source->id,
-                'fileable_type' => get_class($source),
-                'type' => 'image',
-                'extension' => 'jpg'
-            ])->create();
-        });
+        $instagram = Source::Factory()->state(['name' => 'instagram'])->create();
+        $twitter = Source::Factory()->state(['name' => 'twitter'])->create();
+
+        Source::Factory()
+            ->count(10)
+            ->create()
+            ->each(function ($source) {
+                File::factory()->state([
+                    'fileable_id' => $source->id,
+                    'fileable_type' => get_class($source),
+                    'type' => 'photo',
+                    'extension' => 'jpg'
+                ])->create();
+            });
+
+
+        File::factory()->state([
+            'fileable_id' => $instagram->id,
+            'fileable_type' => get_class($instagram),
+            'type' => 'photo',
+            'extension' => 'jpg'
+        ])->create();
+
+        File::factory()->state([
+            'fileable_id' => $twitter->id,
+            'fileable_type' => get_class($twitter),
+            'type' => 'photo',
+            'extension' => 'jpg'
+        ])->create();
     }
 }

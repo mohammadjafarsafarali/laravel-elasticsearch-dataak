@@ -16,6 +16,10 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('instagram_id')->nullable();
+            $table->string('instagram_avatar')->nullable();
+            $table->string('twitter_id')->nullable();
+            $table->string('twitter_avatar')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

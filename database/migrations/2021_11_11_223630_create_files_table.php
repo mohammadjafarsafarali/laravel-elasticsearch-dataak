@@ -17,7 +17,7 @@ class CreateFilesTable extends Migration
             $table->increments('id');
             $table->morphs('fileable');
             $table->string('url');
-            $table->string('type');
+            $table->enum('type', ['video', 'photo']);
             $table->string('extension');
             $table->softDeletes();
             $table->timestamps();

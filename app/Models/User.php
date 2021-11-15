@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Elasticquent\ElasticquentTrait;
 
 class User extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, ElasticquentTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -17,24 +18,24 @@ class User extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'name', 'instagram_id', 'twitter_id', 'instagram_avatar', 'twitter_avatar'
     ];
 
     /**
-     * @return HasMany
+     * @return string
      * @author mj.safarali
      */
-    public function usernames(): HasMany
+    function getIndexName(): string
     {
-        return $this->hasMany(SocialUsername::class);
+        return 'user_index';
     }
 
     /**
      * @return HasMany
      * @author mj.safarali
      */
-    public function socialPosts(): HasMany
+    public function articles(): HasMany
     {
-        return $this->hasMany(Social::class);
+        return $this->hasMany(Article::class);
     }
 }

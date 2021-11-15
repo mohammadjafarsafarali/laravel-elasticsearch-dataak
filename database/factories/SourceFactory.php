@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Source;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Source;
 
 class SourceFactory extends Factory
 {

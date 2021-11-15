@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Elasticquent\ElasticquentTrait;
 
 class Source extends Model
 {
-    use HasFactory, SoftDeletes;
+    use ElasticquentTrait, HasFactory, SoftDeletes;
 
     /**
      * @var string[]
@@ -19,6 +20,14 @@ class Source extends Model
         'url'
     ];
 
+    /**
+     * @return string
+     * @author mj.safarali
+     */
+    function getIndexName(): string
+    {
+        return 'source_index';
+    }
 
     /**
      * @return HasMany

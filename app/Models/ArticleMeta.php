@@ -3,24 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Model;
 
-class PostMeta extends Model
+class ArticleMeta extends Model
 {
     use HasFactory;
 
     /**
      * @var string[]
      */
-    protected $fillable = ['post_id', 'key', 'value'];
+    protected $fillable = ['article_id', 'key', 'value'];
 
     /**
      * @return BelongsTo
      * @author mj.safarali
      */
-    public function post(): BelongsTo
+    public function article(): BelongsTo
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Article::class);
     }
 }
