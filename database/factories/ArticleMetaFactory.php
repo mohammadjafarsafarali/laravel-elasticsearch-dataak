@@ -19,8 +19,8 @@ class ArticleMetaFactory extends Factory
     {
         return [
             'article_id' => Article::factory(),
-            'key' => $this->faker->word,
-            'value' => $this->faker->word
+            'key' => $this->faker->word(),
+            'value' => $this->faker->word()
         ];
     }
 }
