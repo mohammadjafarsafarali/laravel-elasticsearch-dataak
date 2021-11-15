@@ -14,7 +14,6 @@ class ElasticIndexSeeder extends Seeder
      */
     public function run()
     {
-        $articles = Article::with('source', 'user')->get();
-        $articles->addToIndex();
+        Article::with('source', 'user')->get()->addToIndex();
     }
 }
