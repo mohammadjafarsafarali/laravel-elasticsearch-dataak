@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SearchRequest;
 use App\Http\Resources\SearchCollection;
+use App\Http\Requests\SearchRequest;
 use App\Models\Article;
 use Carbon\Carbon;
 
