@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Request;
+use Mojtabarks\ApiExceptions\Handlers\ApiException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -37,5 +39,15 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * @param Request $request
+     * @param Throwable $exception
+     * @author mj.safarali
+     */
+    public function render($request, Throwable $exception)
+    {
+        return ApiException::handle($exception);
     }
 }

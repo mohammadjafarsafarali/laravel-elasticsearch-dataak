@@ -38,4 +38,13 @@ class User extends Model
     {
         return $this->hasMany(Article::class);
     }
+
+    /**
+     * @return HasMany
+     * @author mj.safarali
+     */
+    public function subscriber(): HasMany
+    {
+        return $this->hasMany(Subscribe::class);
+    }
 }

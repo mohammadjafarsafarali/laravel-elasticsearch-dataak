@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d9117bb93f6457e8a2f8c381df9a7d5",
+    "content-hash": "e3d101f8aadffa42dd2a34ee3d0822ee",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1896,6 +1896,91 @@
                 }
             ],
             "time": "2021-09-25T08:23:19+00:00"
+        },
+        {
+            "name": "mojtabarks/api-exceptions",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mojtabaRKS/api-exceptions.git",
+                "reference": "dc3f04b313f5580c2b5083688ea5de2d1aa2cde5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mojtabaRKS/api-exceptions/zipball/dc3f04b313f5580c2b5083688ea5de2d1aa2cde5",
+                "reference": "dc3f04b313f5580c2b5083688ea5de2d1aa2cde5",
+                "shasum": ""
+            },
+            "require": {
+                "mojtabarks/api-response": "2.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mojtabarks\\ApiExceptions\\Providers\\ApiExceptionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mojtabarks\\ApiExceptions\\": "src",
+                    "Mojtabarks\\ApiExceptions\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mojtaba Rakhisi",
+                    "email": "mojtaba.rakhisi@gmail.com"
+                }
+            ],
+            "description": "Exception list using in api which help you to easy manage your api exceptions",
+            "support": {
+                "issues": "https://github.com/mojtabaRKS/api-exceptions/issues",
+                "source": "https://github.com/mojtabaRKS/api-exceptions/tree/v2.1.1"
+            },
+            "time": "2021-11-15T22:15:05+00:00"
+        },
+        {
+            "name": "mojtabarks/api-response",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mojtabaRKS/api-response.git",
+                "reference": "34e7a044086e6ad8447774322d0024af15fefa11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mojtabaRKS/api-response/zipball/34e7a044086e6ad8447774322d0024af15fefa11",
+                "reference": "34e7a044086e6ad8447774322d0024af15fefa11",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mojtabarks\\ApiResponse\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mojtaba Rakhisi",
+                    "email": "mojtaba.rakhisi@gmail.com"
+                }
+            ],
+            "description": "A lighweight package to create appropriate response",
+            "support": {
+                "issues": "https://github.com/mojtabaRKS/api-response/issues",
+                "source": "https://github.com/mojtabaRKS/api-response/tree/v2.1.0"
+            },
+            "time": "2021-07-13T18:40:30+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8238,7 +8323,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

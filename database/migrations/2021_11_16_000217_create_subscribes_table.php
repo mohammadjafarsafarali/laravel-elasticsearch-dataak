@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreateSubscribesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('subscribes', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('source_id');
             $table->foreign('source_id')->on('sources')->references('id');
-            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->on('users')->references('id');
-            $table->string('title')->nullable();
-            $table->text('content');
-            $table->softDeletes();
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('subscribes');
     }
 }

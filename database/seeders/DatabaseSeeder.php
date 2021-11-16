@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->call(UserSeeder::class);
-//        $this->call(SourceSeeder::class);
-//        $this->call(ArticleSeeder::class);
-        $this->call(ElasticIndexSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(SourceSeeder::class);
+        $this->call(ArticleSeeder::class);
+//        $this->call(ElasticIndexSeeder::class); => indexing process added to observer
     }
 }

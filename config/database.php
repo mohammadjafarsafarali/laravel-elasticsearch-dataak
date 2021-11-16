@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Article;
 use App\Models\Source;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -24,6 +25,7 @@ return [
         'morphMap' => [
             'user' => User::class,
             'source' => Source::class,
+            'article' => Article::class,
         ]
     ],
 

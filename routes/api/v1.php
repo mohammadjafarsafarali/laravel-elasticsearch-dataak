@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SubscribeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+Route::get('search', [SearchController::class, 'search']);
 
-Route::get('/search', [\App\Http\Controllers\SearchController::class, 'search']);
-
+Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
+Route::post('subscribe', [SubscribeController::class, 'subscribe'])->name('subscribe.set');
